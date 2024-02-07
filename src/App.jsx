@@ -1,12 +1,10 @@
 import React from "react";
-import LoginComponent from "./components/LoginComponent/LoginComponent";
-import SignupComponent from "./components/SignupComponent/SignupComponent";
-import RegistrationNavigationComponent from "./components/RegistrationNavigationComponent/RegistrationNavigationComponent";
+import NavigationBarComponent from "./components/NavigationBarComponent/NavigationBarComponent";
 
 const App = () => {
   return (
     <React.Fragment>
-        <RegistrationNavigationComponent/>
+      <NavigationBarComponent />
     </React.Fragment>
   );
 };
