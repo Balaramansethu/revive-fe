@@ -5,6 +5,7 @@ import SignupComponent from "../SignupComponent/SignupComponent";
 import RequestPickupComponent from "../RequestPickupComponent/RequestPickupComponent";
 import "../NavigationBarComponent/NavigationBarComponent.css";
 import logo from "../NavigationBarComponent/logo.png";
+import OrderFinalizeComponent from "../RequestPickupComponent/OrderSummaryComponent";
 
 const NavigationBarComponent = () => {
   return (
@@ -32,6 +33,11 @@ const NavigationBarComponent = () => {
           exact
           path="/requestpickup"
           element={<RequestPickupComponent />}
+        ></Route>
+        <Route
+          exact
+          path="/proceed"
+          element={<OrderFinalizeComponent />}
         ></Route>
       </Routes>
     </Router>

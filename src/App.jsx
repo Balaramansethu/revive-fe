@@ -4,7 +4,9 @@ import NavigationBarComponent from "./components/NavigationBarComponent/Navigati
 const App = () => {
   return (
     <React.Fragment>
+
       <NavigationBarComponent />
+
     </React.Fragment>
   );
 };
