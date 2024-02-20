@@ -9,13 +9,14 @@ import Requestcontext from "../../contexts/RequestPickUpContext";
 
 const RequestPickupComponent = () => {
   
-  const {selectedDateTime, image, description, tags, quantity, address, showSummary, setDescription, setTags, setAddress, handleQuantityChange, handleTimeChange, handleImageChange, handleSubmit} = useContext(Requestcontext);
+  const {selectedDateTime, image, description, tags, quantity, address, showSummary, setDescription, setTags, setAddress, handleQuantityChange, handleTimeChange, handleImageChange, handleSubmit, setTitle} = useContext(Requestcontext);
   const navigate = useNavigate();
 
   return (
     <div className="container">
       {!showSummary ? (
         <>
+          <input type="text" onChange={(e)=>setTitle(e.target.value)} placeholder="Request Title" />
           <div className="image-container">
             {Array.from(image).map((item, index) => (
               <span key={index}>

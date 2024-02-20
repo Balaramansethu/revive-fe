@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const OrderSummaryComponent = () => {
 
-  const {selectedDateTime, image, description, tags, quantity, address} = useContext(Requestcontext)
+  const {selectedDateTime, image, description, tags, quantity, address, clearForm} = useContext(Requestcontext)
 
   return (
     <div className="container">
@@ -30,7 +30,7 @@ const OrderSummaryComponent = () => {
       <p><strong>Address:</strong> {address}</p>
 
       {/* Submit button */}
-      <button onClick={() => console.log("Order submitted")}>Submit Order</button>
+      <button onClick={clearForm}>Submit Order</button>
 
       {/* Edit button */}
       <Link to="/requestpickup">
