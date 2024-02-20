@@ -1,9 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import  Requestcontext  from "../../contexts/RequestPickUpContext";
 import { Link } from "react-router-dom";
 
-const OrderSummaryComponent = ({ selectedDateTime, image, description, tags, quantity, address }) => {
+const OrderSummaryComponent = () => {
 
-  
+  const {selectedDateTime, image, description, tags, quantity, address} = useContext(Requestcontext)
+
   return (
     <div className="container">
       <h2>Order Summary</h2>
