@@ -1,9 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import  Requestcontext  from "../../contexts/RequestPickUpContext";
 import { Link } from "react-router-dom";
 
-const OrderSummaryComponent = ({ selectedDateTime, image, description, tags, quantity, address }) => {
+const OrderSummaryComponent = () => {
 
-  
+  const {selectedDateTime, image, description, tags, quantity, address, clearForm} = useContext(Requestcontext)
+
   return (
     <div className="container">
       <h2>Order Summary</h2>
@@ -27,7 +30,7 @@ const OrderSummaryComponent = ({ selectedDateTime, image, description, tags, qua
       <p><strong>Address:</strong> {address}</p>
 
       {/* Submit button */}
-      <button onClick={() => console.log("Order submitted")}>Submit Order</button>
+      <button onClick={clearForm}>Submit Order</button>
 
       {/* Edit button */}
       <Link to="/requestpickup">

@@ -1,49 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import InputTag from "./InputTag";
 import OrderSummaryComponent from "../RequestPickupComponent/OrderSummaryComponent";
 import { useNavigate } from "react-router-dom";
 import "./RequestPickupComponent.css";
+import Requestcontext from "../../contexts/RequestPickUpContext";
 
 const RequestPickupComponent = () => {
-  const [selectedDateTime, setSelectedDateTime] = useState(new Date());
-  const [image, setImage] = useState([]);
-  const [description, setDescription] = useState("");
-  const [tags, setTags] = useState([]);
-  const [quantity, setQuantity] = useState(0);
-  const [address, setAddress] = useState("");
-  const [showSummary, setShowSummary] = useState(false);
-
-
-  const handleQuantityChange = (amount) => {
-    setQuantity((prevQuantity) => prevQuantity + amount);
-  };
-
-  const handleTimeChange = (time) => {
-    setSelectedDateTime(time);
-  };
-
-  const handleImageChange = (e) => {
-    setImage(e.target.files);
-  };
-
-  const handleSubmit = () => {
-    console.log("Selected Date and Time:", selectedDateTime);
-    console.log("Image:", image);
-    console.log("Description:", description);
-    console.log("Tags:", tags);
-    console.log("Quantity:", quantity);
-    console.log("Address:", address);
-    setShowSummary(true);
-  };
-
+  
+  const {selectedDateTime, image, description, tags, quantity, address, showSummary, setDescription, setTags, setAddress, handleQuantityChange, handleTimeChange, handleImageChange, handleSubmit, setTitle} = useContext(Requestcontext);
   const navigate = useNavigate();
 
   return (
     <div className="container">
       {!showSummary ? (
         <>
+          <input type="text" onChange={(e)=>setTitle(e.target.value)} placeholder="Request Title" />
           <div className="image-container">
             {Array.from(image).map((item, index) => (
               <span key={index}>
@@ -98,14 +71,7 @@ const RequestPickupComponent = () => {
           </form>
         </>
       ) : (
-        <OrderSummaryComponent
-          selectedDateTime={selectedDateTime}
-          image={image}
-          description={description}
-          tags={tags}
-          quantity={quantity}
-          address={address}
-        />
+        <OrderSummaryComponent/>
       )}
     </div>
   );
