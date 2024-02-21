@@ -8,8 +8,14 @@ import processingIcon from "../../assets/icons/processing.svg";
 
 
 const RequestElements = ({ele}) =>{
+    const color = {
+        "Pending" : "yellow",
+        "Completed" : "#00ff00",
+        "Rejected" : "#ff0000"
+    }
+
     return(
-        <div className="Container">
+        <div className="Container" style={{backgroundColor: color[ele.status]}}>
             <div className="image-container">
                 <img
                     style={{ padding: "10px" }}
